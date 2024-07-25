@@ -24,15 +24,48 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.shoppinglist.ui.theme.ShoppingListTheme
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            ShoppingListTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ShoopingListApp(modifier = Modifier.padding(innerPadding))}
-            }
+
+
+data class ShoopingItem(
+    val id: Int,
+    var name: String,
+    var quantity: Int,
+    var isEditing: Boolean = false
+)
+
+
+@Composable
+fun ShoopingListApp(modifier: Modifier = Modifier){
+    var sItems by remember { mutableStateOf(listOf<ShoopingItem>()) }
+
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.Center) {
+
+        Button(
+            onClick = { /*TODO*/ },
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        ) {
+            Text(text = "Add Item")
         }
+
+        LazyColumn(
+            modifier = Modifier.fillMaxSize().padding(16.dp)
+        ) {
+            items(sItems)
+        }
+    }
+}
+
+fun items(count: List<ShoopingItem>) {
+
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    ShoppingListTheme {
+        ShoopingListApp()
     }
 }

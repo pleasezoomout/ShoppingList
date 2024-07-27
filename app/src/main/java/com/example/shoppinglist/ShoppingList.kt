@@ -171,9 +171,7 @@ fun ShoppingListItem(item: ShoopingItem,
             .fillMaxWidth()
             .border(
                 border = BorderStroke(2.dp, Color(0XFF018786)),
-                shape = RoundedCornerShape(20)
-            ),
-
+                shape = RoundedCornerShape(20)),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(text = item.name, modifier = Modifier.padding(8.dp))
@@ -230,7 +228,7 @@ fun ShoppingItemEditor(item: ShoopingItem, onEditComplete: (String, Int) -> Unit
     }
 }
 
-
+//
 //@Preview(showBackground = true)
 //@Composable
 //fun ShoppingListItem() {

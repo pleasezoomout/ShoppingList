@@ -17,9 +17,14 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -144,8 +149,8 @@ fun items(count: List<ShoopingItem>) {}
 @Composable
 fun ShoppingListItem(
     item: ShoopingItem,
-    onEdit: (ShoopingItem) -> Unit,
-    onDelete: (ShoopingItem) -> Unit) {
+    onEditClickButton: (ShoopingItem) -> Unit,
+    onDeleteClickButton: (ShoopingItem) -> Unit) {
 
     Row(modifier = Modifier
         .padding(16.dp)
@@ -156,11 +161,22 @@ fun ShoppingListItem(
         ),) {
         
         Text(text = item.name, modifier = Modifier.padding(16.dp))
-    
+        Text(text = "Qty: ${item.quantity}", modifier = Modifier.padding(16.dp))
+
+        Row(modifier = Modifier.padding(8.dp)) {
+
+            IconButton(onClick = { onEditClickButton}) {
+                Icon(imageVector = Icons.Default.Edit, contentDescription = null)
+
+            }
+
+            IconButton(onClick = { onDeleteClickButton}) {
+                Icon(imageVector = Icons.Default.Delete, contentDescription = null)
+
+            }
+        }
     }
 }
-
-
 
 
 @Preview(showBackground = true)

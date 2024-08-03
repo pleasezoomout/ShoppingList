@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
                             titleContentColor = MaterialTheme.colorScheme.primary,
                         ),
                         title = {
-                            Text("Shopping list App")
+                            Text("Shopping list App ")
                         }
                     )
                 },

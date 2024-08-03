@@ -115,6 +115,7 @@ fun ShoopingListApp(
         verticalArrangement = Arrangement.Center) {
 
         Button(
+
             onClick = { showDialog = true },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         ) { Text(text = "Add Item") }

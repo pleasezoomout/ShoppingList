@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
 }
-
+//How to get signing key.
+//https://www.youtube.com/watch?v=FseEa7nt6fY&t=18s
 android {
     namespace = "com.example.shoppinglist"
     compileSdk = 34
@@ -50,6 +51,15 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.maps.compose)
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
+
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.androidx.navigation.compose)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
